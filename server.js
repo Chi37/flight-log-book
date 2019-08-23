@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const passport = require('passport');
 const logger = require('morgan');
 
 //Configures dotenv. whatever code from dotenv and hittng config
@@ -30,6 +31,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(passport.initialize()); 
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
