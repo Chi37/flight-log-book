@@ -40,3 +40,6 @@ passport.deserializeUser((id, done) => {
         done(err, student); 
     }); 
 });
+
+router.get('/logout', (req, res)=>{ 
+    req.logout(); res.redirect('/students');});
