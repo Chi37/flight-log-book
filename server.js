@@ -1,26 +1,29 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-const logger = require('morgan');
 
 //Configures dotenv. whatever code from dotenv and hittng config
 require('dotenv').config()
+const app = express();
 
 //Require the db config file (connect to DB)
-require('./config/database')
+require('./config/database');
+//configure passport
+require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const studentsRouter = require('./routes/students');
-
-const app = express();
+const lessonRouter = require('./routes/lessons')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,10 +36,10 @@ app.use(session({
 }));
 app.use(passport.initialize()); 
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/students', studentsRouter);
+app.use('/', studentsRouter);
+app.use('/lessons', lessonRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,8 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const Student = require('../models/student');
-require('./config/database');
-require('passport-google-oauth20').Strategy;
+
 
 passport.use(new GoogleStrategy({ 
     clientID: process.env.GOOGLE_CLIENT_ID, 
@@ -41,5 +40,5 @@ passport.deserializeUser((id, done) => {
     }); 
 });
 
-router.get('/logout', (req, res)=>{ 
-    req.logout(); res.redirect('/students');});
+
+    
