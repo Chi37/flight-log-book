@@ -1,23 +1,28 @@
 
 <%- include('../partials/header') %>
 
-  <side>
-<% if (student) { %> 
-   <h2><%=student.name%></h2> 
-    <img id="avatar" src="<%=student.avatar%>" alt="avatar">
-    <%=flightHours%>
-<%}%>
-</side>
+<div class="container">
+    <aside>
+    <% if (student) { %> 
+        <img id="avatar" src="<%=student.avatar%>" alt="avatar"> <br>
+        <h2><%=student.name%></h2> 
+        <div id="flight-hours"><%=flightHours%></div><br>
+        <p>hours</p>
+        <%}%>
+    </aside>
 
-<% if (student) { %> 
-  <%lessons.forEach((l, idx) => { %>
+    <main>
+    <% if (student) { %> 
+        <%lessons.forEach((l, idx) => { %>
+            <%=l.date%> <br>
+            <%=l.plane%> <br>
+            <%=l.plane%> <br>
+            <a href="lessons/<%=l.id%>/edit">edit</a>
+        <%})%>
+    <%}%>
+    </main>    
 
-      <%=l.plane%> <a href="lessons/<%=l.id%>/edit">edit</a>
-  <%})%>
-    
-<%}%>
+</div>
 
-</body>
-
-</html>
+<%- include('../partials/footer')%>
 

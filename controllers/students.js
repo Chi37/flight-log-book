@@ -6,7 +6,6 @@ function index(req, res, next) {
     Lesson.find({})
 
     .then(lessons => {
-        console.log(lessons[1])
         res.render('students/index', { 
           student: req.user,
           lessons,

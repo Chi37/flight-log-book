@@ -11,9 +11,11 @@ module.exports = {
 
 //CRUD-less new form 
 function newLesson(req, res){
+    console.log(req.user)
     let planes = Lesson.schema.path('plane').enumValues;
     res.render('lessons/new',{
         planes,
+        student: true
     });
 }
 
@@ -46,12 +48,10 @@ function editView(req,res){
 
     let id = req.params.id
     Lesson.findById(id, function(e, lesson){
-        console.log(lesson)
-
-        res.render(`lessons/edit`,{
+        res.render('lessons/edit',{
             lesson,
             lessonIdx: id,
-            student: true
+            student: true,
         });
     });
    
