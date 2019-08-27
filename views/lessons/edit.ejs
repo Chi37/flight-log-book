@@ -2,7 +2,9 @@
 
   <%- include('../partials/header') %>
 
-<div>
+  <%- include('../partials/aside') %>
+
+<main>
     <form action="/lessons/<%= lessonIdx%>?_method=PUT" method="POST" autocomplete="off"> 
         <input type="text" name="category" value="<%= lesson.category %>">
         <input type="text" name="description" value="<%=lesson.description%>">
@@ -10,5 +12,5 @@
 
         <button type="submit">Save Skill</button>
     </form>
-
+</main>
 <%- include('../partials/footer')%>

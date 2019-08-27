@@ -2,7 +2,7 @@
 body{
   padding: 50px;
   font-family: Helvetica Neue;
-  background: #2AA5FE;
+  background: #FFFFFF;
   font-style: normal;
 }
 
@@ -16,22 +16,50 @@ li {
   display: inline;
 
 }
-
-nav {
+th {
+  font-weight: bold;
+}
+nav{
   position: absolute;
   left: 1.61%;
   right: 1.61%;
   top: 0%;
   bottom: 91.6%;
-  background: #F7F7F9;
+  background:  #2AA5FE;;
   box-shadow: 0px 4px 4px rgba(146, 102, 102, 0.25);
   border-radius: 4px;
 }
 
+#landing-description {
+  position: absolute;
+  left: 25%;
+  right: 24.9%;
+  top: 57.5%;
+  bottom: 28.7%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 46px;
+
+  /* or 209% */
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #373A3C;
+  left: 23.19%;
+  right: 23.08%;
+  top: 56.9%;
+  bottom: 28.1%;
+
+  background: #F7F7F9;
+  border: 2px solid #979797;
+  border-radius: 4px;
+
+}
+
 #flight-hours{
-width: 67px;
-height: 70px;
-top: 462px;
+text-align: center;
 font-style: normal;
 font-weight: 300;
 font-size: 60px;
@@ -40,17 +68,22 @@ letter-spacing: -0.005em;
 color: #000000;
   
 }
+#flight-hours > p {
+  font-size: 25px;
+}
 
 a {
   color:black
 }
 
-#avatar{
-  padding: 15px 0 ;
+aside > #avatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 150px;
-  margin-left: 10px;
-  
+  margin: auto;
+  padding-top: 20px;
 }
 
 .container {
@@ -75,7 +108,7 @@ border-radius: 4px;
 }
 
 main {
-  position: absolute;
+position: absolute;
 left: 26.81%;
 right: 2.52%;
 top: 10.9%;
@@ -88,5 +121,17 @@ border-radius: 4px;
 }
 
 h2{
-  font-size: 30px
+  font-size: 30px;
+  text-align: center;
+}
+
+footer{
+  position: absolute;
+  left: 2.52%;
+  right: 2.52%;
+  top: 91.6%;
+  bottom: 0%;
+
+  background: #2AA5FE;
+  border-radius: 4px;
 }

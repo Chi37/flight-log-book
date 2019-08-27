@@ -52,6 +52,7 @@ function editView(req,res){
             lesson,
             lessonIdx: id,
             student: true,
+            flightHours: 0
         });
     });
    
