@@ -16,8 +16,11 @@ router.get('/:id/edit', lessonCtrl.editView);
 /*POST the lesson*/
 router.post('/', lessonCtrl.create);
 
+/*UPDATE */
 router.put('/:id', lessonCtrl.update);
 
+/* DELETE */
+router.delete('/:id', lessonCtrl.remove)
 
 
 

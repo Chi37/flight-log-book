@@ -5,21 +5,23 @@
 <main>
 <form action="/lessons" method="POST">
 <label>Category:</label>
-    <input type="text" name="category">
+    <input type="text" name="category"><br>
 <label>Date:</label>
-    <input type="date" name="date">
+    <input type="date" name="date"><br>
 <label>Plane:</label>
     <select name="plane">
         <% planes.forEach(function(p) { %>
         <option><%= p %></option>
         <% }) %>
-    </select>
-<label>Hobbs:</label>
-    <input type="number" step='0.01' name="hobbsTime">
+    </select><br>
+<label>Instructor:</label>
+    <input type="text" name="instructor"><br>
+<label>Flight Hours:</label>
+    <input type="number" step='0.01' name="hobbsTime"><br>
 <label>Description:</label>
-    <input type="text" name="description">
-<label>Weight & Balance:</label>
-    <input type="number" step="0.1" name="weightAndBalance">
+    <input type="text" name="description"><br>
+<!-- <label>Weight & Balance:</label>
+    <input type="number" step="0.1" name="weightAndBalance"> -->
 
 <button type="submit">Add Lesson</button>
 </form>

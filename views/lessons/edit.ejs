@@ -5,12 +5,21 @@
   <%- include('../partials/aside') %>
 
 <main>
+  <h2>Edit Details</h2>
     <form action="/lessons/<%= lessonIdx%>?_method=PUT" method="POST" autocomplete="off"> 
-        <input type="text" name="category" value="<%= lesson.category %>">
+  
+        <label>Category:</label>
+        <input type="text" name="category" value="<%= lesson.category %>"><br>
+        <label>Instructor:</label>
+        <input type="text" name="instructor" value="<%=lesson.instructor%>"><br>
+        <label>Plane:</label>
+        <input type="text" name="plane" value="<%=lesson.plane%>"><br>
+        <label>Date:</label>
+        <input type="text" name="date" value="<%=lesson.date%>"><br>
+        <label>Description:</label>
         <input type="text" name="description" value="<%=lesson.description%>">
-       
-
         <button type="submit">Save Skill</button>
+
     </form>
 </main>
 <%- include('../partials/footer')%>

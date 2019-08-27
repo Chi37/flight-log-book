@@ -6,13 +6,18 @@ body{
   font-style: normal;
 }
 
-nav > ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+nav ul li  {
+ display: inline;
+ 
+} 
 
+#logo{
+  margin: 10px 0 0 10px;;;
+  height: 30px;
+  background: #FFFFFF;
+  border: 0.2px solid #2AA5FE;
+  box-sizing: border-box; 
 }
-
 
 th {
   font-weight: bold;
@@ -26,36 +31,9 @@ nav{
   background:  #2AA5FE;;
   box-shadow: 0px 4px 4px rgba(146, 102, 102, 0.25);
   border-radius: 4px;
-  
 }
 
-#landing-description {
-  position: absolute;
-  left: 25%;
-  right: 24.9%;
-  top: 57.5%;
-  bottom: 28.7%;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 22px;
-  line-height: 46px;
 
-  /* or 209% */
-  display: flex;
-  align-items: flex-end;
-  text-align: center;
-
-  color: #373A3C;
-  left: 23.19%;
-  right: 23.08%;
-  top: 56.9%;
-  bottom: 28.1%;
-
-  background: #F7F7F9;
-  border: 2px solid #979797;
-  border-radius: 4px;
-
-}
 
 #flight-hours{
 text-align: center;
@@ -83,6 +61,7 @@ aside > #avatar{
   height: 150px;
   margin: auto;
   padding-top: 20px;
+  border-radius: 3px;
 }
 
 .container {
@@ -95,6 +74,7 @@ aside > #avatar{
 }
 
 aside {
+text-align: center;
 position: absolute;
 left: 2.52%;
 right: 75.71%;
@@ -107,11 +87,16 @@ border-radius: 4px;
 }
 
 main {
+display: flex;
+align-items: center;
+justify-content: center;
 position: absolute;
 left: 26.81%;
 right: 2.52%;
 top: 10.9%;
 bottom: 10.9%;
+
+
 
 background: #F7F7F9;
 border: 2px solid #979797;
@@ -119,10 +104,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 4px;
 }
 
-h2{
-  font-size: 30px;
-  text-align: center;
-}
 
 footer{
   position: absolute;
@@ -134,3 +115,4 @@ footer{
   background: #2AA5FE;
   border-radius: 4px;
 }
+

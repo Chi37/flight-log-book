@@ -6,7 +6,8 @@ module.exports = {
     create,
     show,
     editView,
-    update
+    update,
+    remove
 }
 
 //CRUD-less new form 
@@ -38,7 +39,7 @@ function show (req,res){
     let id = req.params.id
     Lesson.findById(id)
     .then((lesson) => {
-
+console.log(lesson)
         res.render('lessons/show', {
             lesson,
             lessonId: id,
@@ -51,9 +52,6 @@ function show (req,res){
         });
     });
 }
-
-
-
 
 
 
@@ -72,10 +70,19 @@ function editView(req,res){
 }
 
 function update(req,res){
-    console.log(req.params.id)
-    console.log(req.body)
-    Lesson.update(req.params.id, req.body)
+    Lesson.findOneAndUpdate({_id: req.params.id}, req.body)
     .then(res.redirect('/students'))
     .catch(e => {res.status(400).send('unable to save to db')
     });
 }
+
+function remove(req,res){
+
+    Lesson.findOneAndDelete({_id: req.params.id})
+    .then(res.redirect('/students'))
+    .catch(e=>{ res.status(400).send('unable to delete')
+    });
+
+}
+
+

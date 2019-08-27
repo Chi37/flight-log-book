@@ -7,44 +7,24 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th>Date</th>
-                <th>Plane</th>
-                <th>Instructor</th>
-                <th>Details</th>
-                <th></th>
+                    <th>Date</th>
+                    <th>Plane</th>
+                    <th>Instructor</th>
+                    <th>Details</th>
+                    <th></th>
                 </tr>
                 <tbody>
-                <tr>
-                    <td>01/01/2001</td>
-                    <td>C172</td>
-                    <td>john</td>
-                    <td>That one time I stalled</td>
-                    <td>+</td>
-                </tr>
-                <tr>
-                    <td>01/01/2001</td>
-                    <td>C172</td>
-                    <td>mary</td>
-                    <td>Emergency Landings</td>
-                    <td>+</td>
-                </tr>
-                <tr>
-                    <td>09/09/2019</td>
-                    <td>C152</td>
-                    <td>Jane</td>
-                    <td>Turns</td>
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <td><a href="">+</a></td>
-                    </button>
-                </tr>
-            <%lessons.forEach((l, idx) => { %>
+                    <%lessons.forEach((l, idx) => { %>
+       
                 <tr>
                     <td><%=l.date%></td>
                     <td><%=l.plane%></td>
                     <td><%=l.instructor%></td>
                     <td><%=l.category%></td>
                     <td><a href="lessons/<%=l.id%>/edit">edit</a>
-                        <a href="lessons/<%=l.id%>">+</a>
+                        <a href="lessons/<%=l.id%>">Details</a>
+                        <form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit">Delete</button></form>
+
                     </td>
                 </tr>
               
@@ -56,9 +36,10 @@
     </main>    
 </div>
 <%}else{%>
-<h1 id="landing-title">Log & Track Your Lessons</h1><br>
-<p id="landing-description">FlightLogger is an interactive web application...</p>
+    <%- include('../partials/landing') %>
+
 <%}%>
 <%- include('../partials/footer')%>
+
 
 

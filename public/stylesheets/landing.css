@@ -1,0 +1,41 @@
+
+
+
+  h2 {
+    font-size: 50px;
+    text-align: center;
+  }
+  
+  .landing-container {
+    display: flex;
+    align-items: center;
+    text-align: center;   
+  }
+
+#landing-description {
+    position: absolute;
+    left: 23.19%;
+    right: 23.08%;
+    top: 56.9%;
+    bottom: 28.1%;
+
+    background: #F7F7F9;
+    border: 2px solid #979797;
+    border-radius: 4px;
+
+}
+
+#landing-title{
+    position: absolute;
+    left: 28.12%;
+    right: 28.12%;
+    top: 32.7%;
+    bottom: 51.5%;
+
+    /* background: #F7F7F9;
+    border: 2px solid #979797;
+    border-radius: 4px;
+    color: #373A3C;  */
+
+}
+
