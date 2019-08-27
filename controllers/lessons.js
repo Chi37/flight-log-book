@@ -1,9 +1,12 @@
 const Lesson = require('../models/lesson');
+const Student = require('../models/student');
 
 module.exports = {
     new: newLesson,
     create,
-    show
+    show,
+    editView,
+    update
 }
 
 //CRUD-less new form 
@@ -31,9 +34,30 @@ function create(req,res) {
 
 
 function show (req,res){
-    let id = req.params.id
+    let id = req.params._id
     res.render('lessons/show', {
-        lesson: Lesson.getOne(id),
+        lesson: Lesson.findById(id),
         lessonId: id
     });
+}
+
+
+function editView(req,res){
+
+    let id = req.params.id
+    Lesson.findById(id, function(e, lesson){
+        console.log(lesson)
+
+        res.render(`lessons/edit`,{
+            lesson,
+            lessonIdx: id,
+            student: true
+        });
+    });
+   
+}
+
+function update(req,res){
+    console.log(req)
+    res.send('updated view here')
 }

@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 //Configures dotenv. whatever code from dotenv and hittng config
 require('dotenv').config()
@@ -28,6 +29,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 //session middleware
 app.use(session({
   secret: 'skyhawk',
