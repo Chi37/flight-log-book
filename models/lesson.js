@@ -7,6 +7,7 @@ const lessonSchema = new Schema ({
         type: Date,
    
     },
+    instructor: String,
     hobbsTime: {
        type: Number, 
     } ,

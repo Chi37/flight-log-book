@@ -2,12 +2,7 @@
 <%- include('../partials/header') %>
 
 <% if(student){ %> 
-<div class="container">
-    <aside>
-        <img id="avatar" src="<%=student.avatar%>" alt="avatar"> <br>
-        <h2><%=student.name%></h2> 
-        <div id="flight-hours"><p>Total hours:</p><%=flightHours%> </div>
-    </aside>
+<%- include('../partials/aside') %>
     <main>
         <table class="table table-striped">
             <thead>
@@ -38,19 +33,26 @@
                     <td>C152</td>
                     <td>Jane</td>
                     <td>Turns</td>
-                    <td>+</td>
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <td><a href="">+</a></td>
+                    </button>
                 </tr>
+            <%lessons.forEach((l, idx) => { %>
+                <tr>
+                    <td><%=l.date%></td>
+                    <td><%=l.plane%></td>
+                    <td><%=l.instructor%></td>
+                    <td><%=l.category%></td>
+                    <td><a href="lessons/<%=l.id%>/edit">edit</a>
+                        <a href="lessons/<%=l.id%>">+</a>
+                    </td>
+                </tr>
+              
+             
+            <%})%>
                 </tbody>
             </thead>
         </table>
-    <!-- <% if (student) { %> 
-        <%lessons.forEach((l, idx) => { %>
-            <%=l.date%> <br>
-            <%=l.plane%> <br>
-            <%=l.plane%> <br>
-            <a href="lessons/<%=l.id%>/edit">edit</a>
-        <%})%>
-    <%}%> -->
     </main>    
 </div>
 <%}else{%>

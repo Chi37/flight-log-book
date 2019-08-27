@@ -4,7 +4,7 @@ const Lesson = require('../models/lesson')
 
 function index(req, res, next) {
     Lesson.find({})
-
+  
     .then(lessons => {
         res.render('students/index', { 
           student: req.user,
