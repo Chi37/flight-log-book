@@ -37,43 +37,13 @@ function create(req,res) {
 }
 
 function show (req,res){
-    // console.log(req.user.id)
-    // Student.findById(req.user.id)
-    // .then(student => {
-    //     Lesson.find({student: student._id})
-    //     .then(lesson =>{
-    //         res.render('lessons/show', {
-    //         lesson,
-    //         student,
-            
-    //     })
-    // })
-    //     .catch(e=> {
-    //         res.redirect('/students',{
-    //             message: e
-    //         });
-    //     })
-    // })
-    // .catch (e => {
-    //     res.redirect('/students', {
-    //         message: e
-    //     });
-    // })
-
-
-    
-        let id = req.params.id
-        console.log(req.user.id); //user id
-        console.log(id); //lesson id 
-        Student.findById(req.user.id, (e,student)=>{
-            Lesson.find({student: student._id}, (e,lesson)=>{
-                console.log(lesson)
-                res.render('lessons/show',{
-                    lesson,
-                    student
-                });
-            })
-        })
+    let id = req.params.id
+    Lesson.findById(id, (e,lesson)=>{
+        res.render('lessons/show',{
+            lesson,
+            student: req.user
+        });
+    });
 }
 
 
