@@ -22,20 +22,15 @@
 
   <body>
       <nav>
-      <ul>
-        <li><a href="/students"><img id="logo" src="/images/flightlogger logo-01.jpg" alt="logo"></a></li>
-          <% if (student) { %>
-          <li><a href="/lessons/new">Add Lesson</a></li>
-          <li><a class="nav-item nav-link" href="/logout">Log Out</a></li>
-          <li>
-            <% } else { %>
-              <a href="/auth/google">Login with Google</a>
-              <% } %>
-          </li>
-        </ul>
-        
+      <a href="/students"><img id="logo" src="/images/flightlogger logo-01.jpg" alt="logo"></a>
+        <% if (student) { %>
+        <a href="/lessons/new">Add Lesson</a>
+        <a href="/logout">Log Out</a>
+      
+        <% } else { %>
+          <a href="/auth/google"><img src="/images/google.svg" alt="google-signin">Login</a>
+        <% } %>
     </nav>
-
   
 
 

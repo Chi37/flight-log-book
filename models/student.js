@@ -8,11 +8,7 @@ const studentSchema = new Schema({
     },
     avatar: String,
     email: String,
-    googleId: String,
-    lessons: {
-        type: Schema.Types.ObjectId,
-        ref: 'Lesson'
-    }
+    googleId: String
     },{
     timestamps: true
     });

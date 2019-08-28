@@ -1,17 +1,16 @@
-const Student = require('../models/student')
+// const Student = require('../models/student')
 const Lesson = require('../models/lesson')
 
 
-function index(req, res, next) {
+function index(req, res) {
     Lesson.find({})
-  
     .then(lessons => {
-        res.render('students/index', { 
-          student: req.user,
-          lessons,
-          flightHours: 0
-        });
-    })
+      res.render('students/index', { 
+        student: req.user,
+        lessons,
+        flightHours: 0
+      });
+    });
   }
   
 
@@ -19,5 +18,4 @@ function index(req, res, next) {
 
 module.exports ={
     index
-
 }

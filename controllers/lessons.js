@@ -1,6 +1,7 @@
 const Lesson = require('../models/lesson');
 const Student = require('../models/student');
 
+
 module.exports = {
     new: newLesson,
     create,
@@ -12,12 +13,11 @@ module.exports = {
 
 //CRUD-less new form 
 function newLesson(req, res){
-    console.log(req.user)
-    let planes = Lesson.schema.path('plane').enumValues;
+    let planes = Lesson.schema.path('planes').schema.path('plane').enumValues
     res.render('lessons/new',{
-        planes,
-        student: true,
-        flightHours: 0
+        student: req.user,
+        flightHours: 0,
+        planes
     });
 }
 
@@ -26,9 +26,10 @@ function create(req,res) {
     for (let key in req.body){
         if(req.body[key] === '') delete req.body[key];
     };
-    
+    //assign Lesson.student to student id
+    req.body.student = req.user.id;
+    console.log(req.body.student)
     let lesson = new Lesson(req.body);
-    console.log(req.body)
     lesson.save()
     .then(res.redirect('/students'))
     .catch( e => {res.status(400).send('unable to save to db');
@@ -36,22 +37,43 @@ function create(req,res) {
 }
 
 function show (req,res){
-    let id = req.params.id
-    Lesson.findById(id)
-    .then((lesson) => {
-console.log(lesson)
+
+Student.findById(req.user.id)
+.then(student => {
+    Lesson.find({student: student._id})
+    .then((lesson) =>{
         res.render('lessons/show', {
-            lesson,
-            lessonId: id,
-            student: true,
-        });
+        lesson,
+        lessonId: id,
     })
-    .catch(e=>{
-        res.render('/students',{
+})
+    .catch((e)=> {
+        res.redirect('/students',{
             message: e
         });
-    });
+    })
+})
+.catch (e => {res.redirect('/students')})
+    // let id = req.params.id
+    // console.log(req.user.id); //user id
+    // console.log(id); //lesson id 
+    // Lesson.findById(id)
+    // .then((lesson) => {
+    //     res.render('lessons/show', {
+    //         lesson,
+    //         lessonId: id,
+    //         student: req.user,
+
+    //     });
+    // })
+    // .catch(e=>{
+    //     res.render('/students',{
+    //         message: e
+    //     });
+    // });
 }
+
+
 
 
 
@@ -63,7 +85,7 @@ function editView(req,res){
         res.render('lessons/edit',{
             lesson,
             lessonIdx: id,
-            student: true,
+            student: req.user,
             flightHours: 0
         });
     });
