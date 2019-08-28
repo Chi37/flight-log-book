@@ -1,23 +1,20 @@
 <%- include('../partials/header') %>
 
-<%=lesson%>
-<%=lesson.plane%>
-<%=lesson.description%>
-<%=lesson.hours%>
+
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Plane</th>
-            <th>Instructor</th>
+            <th><%=lesson.date%></th>
+            <th><%=lesson.plane%></th>
+            <th><%=lesson.instructor%></th>
             
         </tr>
         <tbody>
         <tr>
             <td>09/09/2019</td>
             <td>C152</td>
-            <td>Jane</td>
+            <td>student:<%=lesson.student%></td>
 
         </tr>
         </tbody>

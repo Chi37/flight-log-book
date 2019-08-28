@@ -37,43 +37,44 @@ function create(req,res) {
 }
 
 function show (req,res){
-
-Student.findById(req.user.id)
-.then(student => {
-    Lesson.find({student: student._id})
-    .then((lesson) =>{
-        res.render('lessons/show', {
-        lesson,
-        lessonId: id,
-    })
-})
-    .catch((e)=> {
-        res.redirect('/students',{
-            message: e
-        });
-    })
-})
-.catch (e => {res.redirect('/students')})
-    // let id = req.params.id
-    // console.log(req.user.id); //user id
-    // console.log(id); //lesson id 
-    // Lesson.findById(id)
-    // .then((lesson) => {
-    //     res.render('lessons/show', {
+    // console.log(req.user.id)
+    // Student.findById(req.user.id)
+    // .then(student => {
+    //     Lesson.find({student: student._id})
+    //     .then(lesson =>{
+    //         res.render('lessons/show', {
     //         lesson,
-    //         lessonId: id,
-    //         student: req.user,
-
-    //     });
+    //         student,
+            
+    //     })
     // })
-    // .catch(e=>{
-    //     res.render('/students',{
+    //     .catch(e=> {
+    //         res.redirect('/students',{
+    //             message: e
+    //         });
+    //     })
+    // })
+    // .catch (e => {
+    //     res.redirect('/students', {
     //         message: e
     //     });
-    // });
+    // })
+
+
+    
+        let id = req.params.id
+        console.log(req.user.id); //user id
+        console.log(id); //lesson id 
+        Student.findById(req.user.id, (e,student)=>{
+            Lesson.find({student: student._id}, (e,lesson)=>{
+                console.log(lesson)
+                res.render('lessons/show',{
+                    lesson,
+                    student
+                });
+            })
+        })
 }
-
-
 
 
 
