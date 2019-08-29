@@ -6,9 +6,10 @@
     text-align: center;
   }
   
-  .landing-container {
+  .landing-container h2, p {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     margin:0;
    

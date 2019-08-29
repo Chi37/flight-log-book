@@ -22,7 +22,14 @@
         <input type="date" name="date" value="<%=lesson.date%>"><br>
         <label>Description:</label>
         <input type="text" name="description" value="<%=lesson.description%>">
-        <button type="submit">Save Skill</button>
+
+        <div class="form-group">
+            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+
+
+        <button class="btn btn-outline-info" id="add-lesson" type="submit">Save Skill</button>
 
     </form>
 </main>
