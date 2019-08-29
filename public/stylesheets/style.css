@@ -1,12 +1,18 @@
 
 body{
-  padding: 50px;
   font-family: Helvetica Neue;
-  background: #FFFFFF;
   font-style: normal;
+  background-color: rgba(210, 217, 233, 0.3);
 }
 
-#logo, .btn, .btn-outline-info{
+
+/* BUTTONS */
+
+.btn a {
+  text-decoration: none;
+}
+
+.btn, .btn-outline-info {
   margin-left: 10px;
   height: 30px;
   background: #FFFFFF;
@@ -15,28 +21,30 @@ body{
   box-sizing: border-box; 
 }
 
-th {
-  font-weight: bold;
-}
-
-.btn-danger{
-  display:grid;
-  border-radius: 3px;
-  border: none;
-  color: rgb(235, 67, 55);
-}
 
 .edit-delete-img{
-  height:20px;
-  width: 14px;
+  height:19px;
+  width: 19px;
 }
+
+button{ 
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  border: none;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
 .btn {
- 
+  display: flex;
+  justify-content: space-around;
   width: 122px;
   height: 38px;
   left: 825px;
   top: 129px;
-  background-color: #2AA5FE;
+  background-color: rgb(42, 165, 254);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logout {
@@ -52,11 +60,6 @@ th {
   color:black
 }
 
-.btn a {
-  text-decoration: none;
-
-}
-
 a:hover {
   color: black;
 }
@@ -66,7 +69,10 @@ a:hover {
   color: #fff;
   background-color:whitesmoke;
   border-color:#2AA5FE;
+  
 }
+
+/* Navbar */
 
 nav{
   display: flex;
@@ -79,30 +85,19 @@ nav{
   right: 1.61%;
   top: 0%;
   bottom: 91.6%;
-  background:  #2AA5FE;;
+  background:  rgb(42, 165, 254);;
   box-shadow: 0px 4px 4px rgba(146, 102, 102, 0.25);
   border-radius: 4px;
 }
 
 
-
-#flight-hours{
-text-align: center;
-font-style: normal;
-font-weight: 300;
-font-size: 60px;
-line-height: 70px;
-letter-spacing: -0.005em;
-color: #000000;
-  
-}
-#flight-hours > p {
-  font-size: 25px;
-}
-
+/* 
 a {
   color:black
-}
+} */
+
+
+/* CONTAINERS */
 
 .container {
   display: grid;
@@ -110,7 +105,6 @@ a {
   "side content";
   grid-template-columns: 200px  200px;
   grid-gap: 25px;;
-
 }
 
 main {
@@ -143,6 +137,7 @@ footer{
   align-content: center;
 }
 
+/* FORM */
 
 .add-form {
   display: flex;
@@ -150,4 +145,16 @@ footer{
   align-items: center; 
   justify-content: center;
 }
+
+/* TABLE */
+tbody  h1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+th {
+  font-weight: bold;
+}
+
 

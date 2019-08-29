@@ -11,7 +11,7 @@ aside {
     border-radius: 4px;
     }
     
-aside > #avatar{
+#avatar{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,20 @@ aside > #avatar{
     height: 150px;
     margin: auto;
     padding-top: 20px;
-    border-radius: 3px;
+    border-radius: 8px;
 }
 
+#flight-hours{
+    text-align: center;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 70px;
+    letter-spacing: -0.005em;
+    color: rgb(42, 165, 254);
+      
+    }
+
+#flight-hours > p {
+    font-size: 25px;
+}

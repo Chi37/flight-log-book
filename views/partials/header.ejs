@@ -22,7 +22,7 @@
 
   <body>
       <nav>
-        <a href="/students"><img id="logo" src="/images/flightlogger logo-01.jpg" alt="logo"></a>
+        <button class="btn btn-outline-info logout"><a href="/students"><img src="/images/plane.svg" alt="logo"></a></button>
         <% if (student) { %>
           
         <button type="button" class="btn btn-outline-info logout">
@@ -30,7 +30,7 @@
         </button>
       
         <% } else { %>
-          <button type="button" class="btn btn-outline-info logout"><a href="/auth/google"><img src="/images/google.svg" alt="google-signin">Login</a></button>
+          <button class="btn btn-outline-info logout"><img src="/images/google.svg" alt="google-signin"><a href="/auth/google">Login</a></button>
         <% } %>
     </nav>
   

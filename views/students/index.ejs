@@ -3,7 +3,6 @@
 <% if(student){ %> 
 <%- include('../partials/aside') %>
     <main>
-        
         <button type="button" class="btn btn-outline-info"><a href="/lessons/new">Add Lesson</a></button>
         <table class="table table-striped">
             <thead>
@@ -13,10 +12,11 @@
                     <th>Instructor</th>
                     <th>Details</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 <tbody>
+                    <h1>Your Lessons:</h1>
                     <%lessons.forEach((l, idx) => { %>
-       
                 <tr>
                     <td><%=l.date%></td>
                     <td><%=l.planes.plane%></td>
@@ -24,8 +24,8 @@
                     <td><%=l.category%></td>
                     <td><a href="lessons/<%=l.id%>/edit"><img src="/images/edit.svg" alt=""></a>
                         <a href="lessons/<%=l.id%>">Details</a>
-                        <form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button class="btn-danger" type="submit"><img class="edit-delete-img" src="/images/delete.svg"></button></form>
                     </td>
+                    <td><form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit"><img class="edit-delete-img" src="/images/delete.svg"></button></form></td>
                 </tr>
               
             <%})%>
