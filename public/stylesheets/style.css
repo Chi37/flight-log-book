@@ -6,13 +6,12 @@ body{
   font-style: normal;
 }
 
-
-#logo{
+#logo, .btn, .btn-outline-info{
   margin-left: 10px;
   height: 30px;
   background: #FFFFFF;
   border: 0.2px solid #2AA5FE;
-  border-radius: 7px;
+  border-radius: 9px;
   box-sizing: border-box; 
 }
 
@@ -20,11 +19,35 @@ th {
   font-weight: bold;
 }
 
+.btn {
+  width: 122px;
+  height: 38px;
+  left: 825px;
+  top: 129px;
+  background-color: #2AA5FE;
+}
 
+.btn a {
+  text-decoration: none;
+  color: white;
+
+}
+
+a:hover {
+  color: black;
+}
+
+
+.btn-outline-info:hover {
+  color: #fff;
+  background-color:whitesmoke;
+  border-color:#2AA5FE;
+}
 
 nav{
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
 
   position: absolute;
@@ -92,15 +115,14 @@ border-radius: 4px;
 
 main {
 display: flex;
-align-items: center;
-justify-content: center;
+flex-direction: column;
+/* align-items: center; */
+/* justify-content: center; */
 position: absolute;
 left: 26.81%;
 right: 2.52%;
 top: 10.9%;
 bottom: 10.9%;
-
-
 
 background: #F7F7F9;
 border: 2px solid #979797;
@@ -115,8 +137,14 @@ footer{
   right: 2.52%;
   top: 91.6%;
   bottom: 0%;
-
+  color: white;
   background: #2AA5FE;
   border-radius: 4px;
 }
 
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}

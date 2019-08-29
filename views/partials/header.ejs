@@ -22,10 +22,12 @@
 
   <body>
       <nav>
-      <a href="/students"><img id="logo" src="/images/flightlogger logo-01.jpg" alt="logo"></a>
+        <a href="/students"><img id="logo" src="/images/flightlogger logo-01.jpg" alt="logo"></a>
         <% if (student) { %>
-        <a href="/lessons/new">Add Lesson</a>
-        <a href="/logout">Log Out</a>
+          
+        <button type="button" class="btn btn-outline-info">
+          <a href="/logout">Log Out</a>
+        </button>
       
         <% } else { %>
           <a href="/auth/google"><img src="/images/google.svg" alt="google-signin">Login</a>

@@ -68,11 +68,13 @@ function show (req,res){
 
 
 function editView(req,res){
+    let planes = Lesson.schema.path('planes').schema.path('plane').enumValues
     let id = req.params.id
     Lesson.findById(id)
     .then(lesson => {
         res.render('lessons/edit',{
             lesson,
+            planes,
             lessonIdx: id,
             student: req.user,
             flightHours: 0

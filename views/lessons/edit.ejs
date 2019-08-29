@@ -13,9 +13,14 @@
         <label>Instructor:</label>
         <input type="text" name="instructor" value="<%=lesson.instructor%>"><br>
         <label>Plane:</label>
-        <input type="text" name="plane" value="<%=lesson.plane%>"><br>
+        <select name="planes">
+            <% planes.forEach(function(p) { %>
+            <option><%= p %></option>
+            <% }) %>
+            <option selected><%=lesson.planes.plane%></option>
+        </select><br>
         <label>Date:</label>
-        <input type="text" name="date" value="<%=lesson.date%>"><br>
+        <input type="date" name="date" value="<%=lesson.date%>"><br>
         <label>Description:</label>
         <input type="text" name="description" value="<%=lesson.description%>">
         <button type="submit">Save Skill</button>

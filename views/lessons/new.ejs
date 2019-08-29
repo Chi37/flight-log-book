@@ -2,12 +2,12 @@
 <%- include('../partials/header')%>
 <%- include('../partials/aside')%>
 
-<main>
+<main class="add-form">
 <form action="/lessons" method="POST">
 <label>Category:</label>
     <input type="text" name="category"><br>
 <label>Date:</label>
-    <input type="date" name="date"><br>
+    <input class="lesson-date" type="date" name="date"><br>
 <label>Plane:</label>
     <select name="planes">
         <% planes.forEach(function(p) { %>
@@ -27,3 +27,5 @@
 </form>
 
 </main>
+
+<%- include('../partials/footer')%>
