@@ -7,6 +7,8 @@ body{
 
 /* BUTTONS & LINKS */
 
+
+
 .btn a {
   text-decoration: none;
 }
@@ -19,12 +21,15 @@ body{
   border-radius: 9px;
   box-sizing: border-box; 
 }
+
 #add-lesson {
-  color:white
+  color:white;
+
 }
 
-
-
+.add-btn{
+  margin: 10px;
+}
 
 .edit-delete-img{
   height:19px;
@@ -53,7 +58,6 @@ button{
 
 .logout {
   background-color: white;
-
 }
 
 .logout a {
@@ -64,16 +68,11 @@ button{
   color:black
 }
 
-a:hover {
-  color: black;
-}
-
 
 .btn-outline-info:hover {
   color: #fff;
   background-color:whitesmoke;
   border-color:#2AA5FE;
-  
 }
 
 /* Navbar */
@@ -93,7 +92,6 @@ nav{
   box-shadow: 0px 4px 4px rgba(146, 102, 102, 0.25);
   border-radius: 4px;
 }
-
 
 
 
@@ -126,8 +124,8 @@ border-radius: 4px;
 
 footer{
   position: absolute;
-  left: 2.52%;
-  right: 2.52%;
+  left: 1.61%;
+  right: 1.61%;
   top: 91.6%;
   bottom: 0%;
   color: white;
@@ -136,6 +134,9 @@ footer{
   text-align: center;
   display: grid;
   align-content: center;
+
+
+
 }
 
 /* FORM */
