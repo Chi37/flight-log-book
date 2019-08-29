@@ -1,6 +1,10 @@
 // const Student = require('../models/student')
 const Lesson = require('../models/lesson')
 
+module.exports ={
+  index
+}
+
 // checks if someone logged in through OAuth and displays lessons associated to user
 function index(req, res) {
   if(!req.user){
@@ -8,14 +12,14 @@ function index(req, res) {
     student: req.user,
     }); 
     } else {
-      console.log(req.user.id)
       Lesson.find({student:req.user.id})
       .then(lessons => {
-        console.log('lessons: '+ lessons)
+        
+      //  lessons.forEach( l => { req.user.totalHours += l.hours})
+       console.log(req.user.totalHours);
         res.render('students/index', { 
           student: req.user,
           lessons,
-          flightHours: 0
         });
       })
       .catch(e => {
@@ -26,7 +30,6 @@ function index(req, res) {
   
 
 
-
-module.exports ={
-    index
+function addStudentHours(){
+  
 }

@@ -40,8 +40,8 @@ function create(req,res) {
         instructor: req.body.instructor,
         description: req.body.description
     });
-
-    console.log(lesson)
+    req.user.totalHours += parseInt(req.body.hours);
+    console.log('users total hours: '+ req.user.totalHours)
     lesson.save()
     .then(savedLesson => res.redirect('/students'))
     .catch( e => {res.status(400).send('unable to save to db'),

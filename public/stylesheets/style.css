@@ -19,7 +19,19 @@ th {
   font-weight: bold;
 }
 
+.btn-danger{
+  display:grid;
+  border-radius: 3px;
+  border: none;
+  color: rgb(235, 67, 55);
+}
+
+.edit-delete-img{
+  height:20px;
+  width: 14px;
+}
 .btn {
+ 
   width: 122px;
   height: 38px;
   left: 825px;
@@ -104,8 +116,6 @@ a {
 main {
 display: flex;
 flex-direction: column;
-/* align-items: center; */
-/* justify-content: center; */
 position: absolute;
 left: 26.81%;
 right: 2.52%;

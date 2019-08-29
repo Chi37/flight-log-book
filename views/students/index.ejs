@@ -22,9 +22,9 @@
                     <td><%=l.planes.plane%></td>
                     <td><%=l.instructor%></td>
                     <td><%=l.category%></td>
-                    <td><a href="lessons/<%=l.id%>/edit">edit</a>
+                    <td><a href="lessons/<%=l.id%>/edit"><img src="/images/edit.svg" alt=""></a>
                         <a href="lessons/<%=l.id%>">Details</a>
-                        <form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit">Delete</button></form>
+                        <form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button class="btn-danger" type="submit"><img class="edit-delete-img" src="/images/delete.svg"></button></form>
                     </td>
                 </tr>
               

@@ -6,6 +6,10 @@ const studentSchema = new Schema({
         type: String,
         required: true,
     },
+    totalHours: { 
+        type: Number,
+        default: 10
+    },
     avatar: String,
     email: String,
     googleId: String

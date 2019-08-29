@@ -3,13 +3,12 @@
 </head>
 
 
-
 <div class="container">
         <aside>
         <% if (student) { %> 
             <img id="avatar" src="<%=student.avatar%>" alt="avatar"> <br>
             <h2><%=student.name%></h2> 
-            <div id="flight-hours"><p>Total hours:</p><%=flightHours%> </div>
+            <div id="flight-hours"><p>Total hours:</p><%=student.totalHours%> </div>
             
             <%}%>
         </aside>
