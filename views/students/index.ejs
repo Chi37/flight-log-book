@@ -18,17 +18,15 @@
        
                 <tr>
                     <td><%=l.date%></td>
-                    <td><%=l.plane%></td>
+                    <td><%=l.planes.plane%></td>
                     <td><%=l.instructor%></td>
                     <td><%=l.category%></td>
                     <td><a href="lessons/<%=l.id%>/edit">edit</a>
                         <a href="lessons/<%=l.id%>">Details</a>
                         <form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit">Delete</button></form>
-
                     </td>
                 </tr>
               
-             
             <%})%>
                 </tbody>
             </thead>

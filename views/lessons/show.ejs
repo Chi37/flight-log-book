@@ -3,25 +3,31 @@
 
 
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th><%=lesson.date%></th>
-            <th><%=lesson.plane%></th>
-            <th><%=lesson.instructor%></th>
-            
-        </tr>
-        <tbody>
-        <tr>
-            <td>09/09/2019</td>
-            <td>C152</td>
-            <td>student:<%=lesson.student%></td>
+<thead>
+    <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Instructor</th>
+        <th>Plane</th>
+        <th>Hours</th>
+        <th>Weight and Balance</th>
+    </tr>
 
-        </tr>
-        </tbody>
-    </thead>
+</thead>
+    <tbody>    
+    <tr>
+        <td><%=lesson.date%></td>
+        <td><%=lesson.category%></td>
+        <td><%=lesson.instructor%></td>
+        <td><%=lesson.planes.plane%></td>
+        <td><%=lesson.hours%></td>
+        <td><%=lesson.weightAndBalance%></td>
+    </tr>
+    </tbody>
 </table>
+
 <h2>Details:</h2>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo quisquam sint distinctio cum consequuntur earum officiis aspernatur, error nostrum officia adipisci veniam et, voluptatem debitis sed sit, incidunt rem. Voluptas!</p>
+<p><%=lesson.description%></p>
 
 <%- include('../partials/footer') %>
 

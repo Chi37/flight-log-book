@@ -1,7 +1,6 @@
 const Lesson = require('../models/lesson');
 const Student = require('../models/student');
 
-
 module.exports = {
     new: newLesson,
     create,
@@ -11,9 +10,10 @@ module.exports = {
     remove
 }
 
-//CRUD-less new form 
+//CRUD-less new lesson form 
 function newLesson(req, res){
     let planes = Lesson.schema.path('planes').schema.path('plane').enumValues
+
     res.render('lessons/new',{
         student: req.user,
         flightHours: 0,
@@ -28,21 +28,39 @@ function create(req,res) {
     };
     //assign Lesson.student to student id
     req.body.student = req.user.id;
-    console.log(req.body.student)
-    let lesson = new Lesson(req.body);
+    console.log(req.body)
+    let lesson = new Lesson({
+        student: req.body.student,
+        category: req.body.category,
+        date: req.body.date,
+        planes: {
+            plane: req.body.planes
+        },
+        hours: req.body.hours,
+        instructor: req.body.instructor,
+        description: req.body.description
+    });
+
+    console.log(lesson)
     lesson.save()
-    .then(res.redirect('/students'))
-    .catch( e => {res.status(400).send('unable to save to db');
+    .then(savedLesson => res.redirect('/students'))
+    .catch( e => {res.status(400).send('unable to save to db'),
+    console.log(e);
     });
 }
 
 function show (req,res){
     let id = req.params.id
-    Lesson.findById(id, (e,lesson)=>{
+    Lesson.findById(id)
+    .then(lesson=>{
         res.render('lessons/show',{
             lesson,
             student: req.user
         });
+    })
+    .catch(e => {
+        res.status(400).send("we can't find this page, sorry"),
+        console.log(e)
     });
 }
 
@@ -50,22 +68,28 @@ function show (req,res){
 
 
 function editView(req,res){
-   console.log( Student.find({}))
     let id = req.params.id
-    Lesson.findById(id, function(e, lesson){
+    Lesson.findById(id)
+    .then(lesson => {
         res.render('lessons/edit',{
             lesson,
             lessonIdx: id,
             student: req.user,
             flightHours: 0
         });
-    });
+    })
+    .catch(e => {
+        res.send(400).send('no edit view'),
+        console.log(e)
+    })
 }
 
 function update(req,res){
     Lesson.findOneAndUpdate({_id: req.params.id}, req.body)
     .then(res.redirect('/students'))
-    .catch(e => {res.status(400).send('unable to save to db')
+    .catch(e => {
+        res.status(400).send('unable to save to db'),
+        console.log(e)
     });
 }
 
@@ -73,7 +97,9 @@ function remove(req,res){
 
     Lesson.findOneAndDelete({_id: req.params.id})
     .then(res.redirect('/students'))
-    .catch(e=>{ res.status(400).send('unable to delete')
+    .catch(e=> { 
+        res.status(400).send('unable to delete'),
+        console.log(e)
     });
 
 }

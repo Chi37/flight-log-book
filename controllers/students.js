@@ -8,8 +8,10 @@ function index(req, res) {
     student: req.user,
     }); 
     } else {
+      console.log(req.user.id)
       Lesson.find({student:req.user.id})
       .then(lessons => {
+        console.log('lessons: '+ lessons)
         res.render('students/index', { 
           student: req.user,
           lessons,

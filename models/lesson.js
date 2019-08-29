@@ -23,7 +23,7 @@ const lessonSchema = new Schema ({
     hours: {
        type: Number, 
     } ,
-    planes: [planeSchema],
+    planes: planeSchema,
     description: String,
     weightAndBalance: Number
 },{
