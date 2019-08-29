@@ -18,10 +18,13 @@ const lessonSchema = new Schema ({
     category: String,
     date: {
         type: Date,
+        required: true
     },
     instructor: String,
     hours: {
        type: Number, 
+       required: true,
+       default: 0
     } ,
     planes: planeSchema,
     description: String,
