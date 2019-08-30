@@ -14,12 +14,12 @@ function index(req, res) {
     } else {
       Lesson.find({student:req.user.id})
       .then(lessons => {
-        
-      //  lessons.forEach( l => { req.user.totalHours += l.hours})
-       console.log(req.user.totalHours);
+        let hours = 0;
+       lessons.forEach( l => { hours += l.hours})
         res.render('students/index', { 
           student: req.user,
           lessons,
+          hours
         });
       })
       .catch(e => {
@@ -30,6 +30,11 @@ function index(req, res) {
   
 
 
-function addStudentHours(){
-  
-}
+// function addStudentHours(userId){
+//   let hours = 0;
+//   Lesson.find({student: userId})
+//   .then(lessons => {
+//     lessons.forEach(l => {})
+//   })
+
+// }

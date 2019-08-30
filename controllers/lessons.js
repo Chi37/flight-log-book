@@ -18,7 +18,8 @@ function newLesson(req, res){
     res.render('lessons/new',{
         student: req.user,
         flightHours: 0,
-        planes
+        planes,
+        hours: 0
     });
 }
 
@@ -45,7 +46,7 @@ function create(req,res) {
     console.log('users total hours: '+ req.user.totalHours)
     lesson.save()
     .then(savedLesson => res.redirect('/students'))
-    .catch( e => {res.status(400).send('unable to save to db'),
+    .catch( e => {res.status(400).send('Please make sure you include Date and category'),
     console.log(e);
     });
 }
@@ -56,7 +57,8 @@ function show (req,res){
     .then(lesson=>{
         res.render('lessons/show',{
             lesson,
-            student: req.user
+            student: req.user,
+            hours: 0
         });
     })
     .catch(e => {
@@ -78,7 +80,7 @@ function editView(req,res){
             planes,
             lessonIdx: id,
             student: req.user,
-            flightHours: 0
+            hours: 0
         });
     })
     .catch(e => {
