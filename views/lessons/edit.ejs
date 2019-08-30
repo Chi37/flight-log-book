@@ -2,10 +2,10 @@
   <%- include('../partials/header') %>
 
   <%- include('../partials/aside') %>
-<main>
+<main class="add-form">
  
   <h2>Edit Details</h2>
-    <form class="add-form" action="/lessons/<%= lessonIdx%>?_method=PUT" method="POST" autocomplete="off"> 
+    <form action="/lessons/<%= lessonIdx%>?_method=PUT" method="POST" autocomplete="off"> 
   
         <label>Category:</label>
         <input type="text" name="category" value="<%= lesson.category %>"><br>

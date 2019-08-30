@@ -93,7 +93,6 @@ nav{
 
 
 
-
 /* CONTAINERS */
 
 .container {
@@ -141,14 +140,7 @@ footer{
   align-content: center;
 }
 
-/* FORM */
 
-.add-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-}
 
 /* TABLE */
 tbody  h1 {
@@ -161,4 +153,16 @@ th {
   font-weight: bold;
 }
 
+/* FORM */
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.add-form :first-child{
+  align-self: center;
+}
 
