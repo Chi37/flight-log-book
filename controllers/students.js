@@ -1,5 +1,6 @@
 // const Student = require('../models/student')
-const Lesson = require('../models/lesson')
+const Lesson = require('../models/lesson');
+const Student = require('../models/student');
 
 module.exports ={
   index
@@ -14,6 +15,18 @@ function index(req, res) {
     } else {
       Lesson.find({student:req.user.id})
       .then(lessons => {
+        Student.findById({_id:req.user.id})
+        .then(student=>{
+          console.log(student )
+          student.getAllHours((e, stu) =>{
+            if (e) return;
+          });
+        })
+        .catch(e=>{console.log(e)})
+      
+        // student.getAllHours(function (e, hours){
+        //   console.log(e);
+        //  })
         let hours = 0;
        lessons.forEach( l => { hours += l.hours})
         res.render('students/index', { 
@@ -24,10 +37,14 @@ function index(req, res) {
       })
       .catch(e => {
         res.status(400).send('unable to find user')
-      })
+      });
      }
   }
-  
+
+  // lessons.getAllHours(function (e, hours){
+  //   console.log(hours);
+  //  })
+   
 
 
 // function addStudentHours(userId){
@@ -38,3 +55,7 @@ function index(req, res) {
 //   })
 
 // }
+
+function totalHours(){
+  Student.find(req.params.id)
+}

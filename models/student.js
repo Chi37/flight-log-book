@@ -20,3 +20,15 @@ const studentSchema = new Schema({
  
 
 module.exports = mongoose.model('Student', studentSchema);
+
+
+
+studentSchema.method.getAllHours = function getAllHours(cb) {
+    let today = new Date();
+    Lesson.find({student: student._id,  date: {$lt: today}}, (lessons)=>
+    {
+        return this.totalHours = lessons.reduce((total, lessons) => total += lessons.hours, 0)
+    })
+
+}
+

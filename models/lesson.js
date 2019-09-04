@@ -35,3 +35,12 @@ timestamps: true
 
 
 module.exports =  mongoose.model('Lesson', lessonSchema)
+
+lessonSchema.method.getAllHours = function getAllHours () {
+    let today = new Date();
+    Lesson.find({student: student._id,  date: {$lt: today}}, (lessons)=>
+    {
+        this.totalHours = lessons.reduce((total, lessons) => total += lessons.hours, 0)
+    })
+
+}

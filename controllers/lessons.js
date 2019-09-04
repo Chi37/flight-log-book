@@ -44,6 +44,7 @@ function create(req,res) {
     });
     req.user.totalHours += parseInt(req.body.hours);
     console.log('users total hours: '+ req.user.totalHours)
+
     lesson.save()
     .then(savedLesson => res.redirect('/students'))
     .catch( e => {res.status(400).send('Please make sure you include Date and category'),
