@@ -16,24 +16,16 @@ function index(req, res) {
       Lesson.find({student:req.user.id})
       .then(lessons => {
         Student.findById({_id:req.user.id})
-        .then(student=>{
-          console.log(student )
-          student.getAllHours((e, stu) =>{
-            if (e) return;
+        .then(student=> student.getAllHours())
+        .then(hours => {
+          res.render('students/index', { 
+            student: req.user,
+            lessons,
+            hours
           });
         })
         .catch(e=>{console.log(e)})
-      
-        // student.getAllHours(function (e, hours){
-        //   console.log(e);
-        //  })
-        let hours = 0;
-       lessons.forEach( l => { hours += l.hours})
-        res.render('students/index', { 
-          student: req.user,
-          lessons,
-          hours
-        });
+        
       })
       .catch(e => {
         res.status(400).send('unable to find user')
