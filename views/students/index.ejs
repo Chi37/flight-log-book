@@ -2,41 +2,41 @@
 <%- include('../partials/header') %>
 <% if(student){ %> 
 <%- include('../partials/aside') %>
-    <main>
-        <button class="btn btn-outline-info add-btn"><a id="add-lesson" href="/lessons/new">Add Lesson</a></button>
-  
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Plane</th>
-                    <th>Instructor</th>
-                    <th>Details</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tbody>
-                    <h1>Your Lessons:</h1>
-                    <%lessons.forEach((l, idx) => { %>
-                <tr>
-                    <td><%=l.date%></td>
-                    <td><%=l.planes.plane%></td>
-                    <td><%=l.instructor%></td>
-                    <td><%=l.category%></td>
-                    <td><a href="lessons/<%=l.id%>/edit"><img src="/images/edit.svg" alt=""></a>
-                        <a href="lessons/<%=l.id%>">Details</a>
-                    </td>
-                    <td><form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit"><img class="edit-delete-img" src="/images/delete.svg"></button></form></td>
-                </tr>
-              
-            <%})%>
-                </tbody>
-            </thead>
-        </table>
-    </main>    
+  <main>
+      <button class="btn btn-outline-info add-btn"><a id="add-lesson" href="/lessons/new">Add Lesson</a></button>
+
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Plane</th>
+                  <th>Instructor</th>
+                  <th>Details</th>
+                  <th></th>
+                  <th></th>
+              </tr>
+              <tbody>
+                  <h1>Your Lessons:</h1>
+                  <%lessons.forEach((l, idx) => { %>
+              <tr>
+                  <td><%=l.date%></td>
+                  <td><%=l.planes.plane%></td>
+                  <td><%=l.instructor%></td>
+                  <td><%=l.category%></td>
+                  <td><a href="lessons/<%=l.id%>/edit"><img src="/images/edit.svg" alt=""></a>
+                      <a href="lessons/<%=l.id%>">Details</a>
+                  </td>
+                  <td><form action="/lessons/<%=l.id%>?_method=DELETE" method="POST" autocomplete="off"><button type="submit"><img class="edit-delete-img" src="/images/delete.svg"></button></form></td>
+              </tr>
+            
+          <%})%>
+              </tbody>
+          </thead>
+      </table>
+  </main>    
 </div>
 <%}else{%>
-    <%- include('../partials/landing') %>
+  <%- include('../partials/landing') %>
 
 <%}%>
 <%- include('../partials/footer')%>
